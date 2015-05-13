@@ -45,10 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func saveName(name: String) {
-        //1
-        
-        
-        //2
+
         let entity =  NSEntityDescription.entityForName("Person",
             inManagedObjectContext:
             managedContext!)
