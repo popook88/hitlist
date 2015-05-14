@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         managedContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
-        title = "\"Kevin's List\""
+        title = "Kevin's List"
         tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "Cell")
     }
@@ -101,6 +101,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         
         if let results = fetchedResults as? [Person]{
+            //sort results by earliest entry to latest entry
             var sortedResults = sorted(results, {
                 $0.date.compare($1.date) == NSComparisonResult.OrderedAscending
             })
@@ -111,8 +112,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
 
     }
-
-    
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
@@ -130,13 +129,10 @@ class ViewController: UIViewController, UITableViewDataSource {
             let person = people[indexPath.row]
             cell.textLabel!.text = person.fullName()
             
-           // cell.textLabel!.text = person.valueForKey("name") as? String
-            
             return cell
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
         
         return [
             UITableViewRowAction(style: .Normal, title: "More") { _ in println("More") },
