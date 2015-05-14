@@ -10,39 +10,55 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource {
+    
+    
 
+//Global variables
     @IBOutlet weak var tableView: UITableView!
     var people = [Person]()
     var managedContext: NSManagedObjectContext?
+    
+
+//Action: push "Add" button
+//Creates alert with text box
+//user hit save -> create new Person with text as name, add to people array, display with animation on list
+//user hits cancel -> return to list, nothing happens
     @IBAction func addName(sender: AnyObject) {
         
         var alert = UIAlertController(title: "New Name",
             message: "Add a new name!",
             preferredStyle: .Alert)
         
-        let saveAction = UIAlertAction(title: "Save",
-            style: .Default) { (action: UIAlertAction!) -> Void in
-                
-                let textField = alert.textFields![0] as! UITextField
-                self.saveName(textField.text)
-                let indexPath = NSIndexPath(forRow: self.people.count-1, inSection: 0)
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-            style: .Default) { (action: UIAlertAction!) -> Void in
-        }
         alert.addTextFieldWithConfigurationHandler {
             (textField: UITextField!) -> Void in
         }
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
+        let textField = alert.textFields![0] as! UITextField
+        alert.addAction(saveAction(textField))
+        alert.addAction(cancelAction())
         
         presentViewController(alert,
             animated: true,
             completion: nil)
         
     }
+    
+    func saveAction(textField: UITextField) -> UIAlertAction {
+        return UIAlertAction(title: "Save",
+            style: .Default) { (action: UIAlertAction!) -> Void in
+                self.saveName(textField.text)
+                let indexPath = NSIndexPath(forRow: self.people.count-1, inSection: 0)
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    func cancelAction() -> UIAlertAction{
+        return UIAlertAction(title: "Cancel",
+        style: .Default) { (action: UIAlertAction!) -> Void in
+        }
+    }
+
+    
+    
     
     func saveName(name: String) {
 
