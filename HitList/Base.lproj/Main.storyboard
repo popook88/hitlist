@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qUS-po-egO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="usi-6a-Oa4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="n6D-LC-djJ">
+            <objects>
+                <tabBarController id="usi-6a-Oa4" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="7t5-Qz-wtO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qUS-po-egO" kind="relationship" relationship="viewControllers" id="s6V-rg-7In"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fiM-vM-54d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327" y="907"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="9uI-x0-7QP">
             <objects>
@@ -13,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pbz-Fb-IUJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="pbz-Fb-IUJ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pbz-Fb-IUJ" id="kdq-f1-7Zm">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -38,12 +56,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqX-Xr-bcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="907.5"/>
+            <point key="canvasLocation" x="1080" y="907"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jdK-uC-euq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qUS-po-egO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="sample-820-bathtub" id="PSr-8p-2FK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bjs-C8-Lqn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -59,4 +78,7 @@
             <point key="canvasLocation" x="384" y="907.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sample-820-bathtub" width="28" height="26"/>
+    </resources>
 </document>

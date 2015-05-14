@@ -18,12 +18,31 @@ class ViewController: UIViewController, UITableViewDataSource {
     var people = [Person]()
     var managedContext: NSManagedObjectContext?
     
+    // The view has loaded in memory, not displayed
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        managedContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+        title = "Bathtub"
+         loadPeopleFromManagedObject()
+    }
+    
+    // MARK:UIACTIONS
 
 //Action: push "Add" button
 //Creates alert with text box
 //user hit save -> create new Person with text as name, add to people array, display with animation on list
 //user hits cancel -> return to list, nothing happens
     @IBAction func addName(sender: AnyObject) {
+        
+        presentViewController(
+            alertController("New Name", message: "Add a new name!"),
+            animated: true,
+            completion: nil)
+        
+    }
+    
+    func alertController (title: String, message: String) -> UIAlertController {
         
         var alert = UIAlertController(title: "New Name",
             message: "Add a new name!",
@@ -32,14 +51,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         alert.addTextFieldWithConfigurationHandler {
             (textField: UITextField!) -> Void in
         }
-        let textField = alert.textFields![0] as! UITextField
-        alert.addAction(saveAction(textField))
+        alert.addAction(saveAction(alert.textFields![0] as! UITextField))
         alert.addAction(cancelAction())
-        
-        presentViewController(alert,
-            animated: true,
-            completion: nil)
-        
+        return alert
     }
     
     func saveAction(textField: UITextField) -> UIAlertAction {
@@ -53,7 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func cancelAction() -> UIAlertAction{
         return UIAlertAction(title: "Cancel",
-        style: .Default) { (action: UIAlertAction!) -> Void in
+            style: .Default) { (action: UIAlertAction!) -> Void in
         }
     }
 
@@ -76,42 +90,36 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         people.append(person)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        managedContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
-        title = "Kevin's List"
-        tableView.registerClass(UITableViewCell.self,
-            forCellReuseIdentifier: "Cell")
-    }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        loadPeopleFromManagedObject()
-    }
-    
+        
     func loadPeopleFromManagedObject(){
         let fetchRequest = NSFetchRequest(entityName:"Person")
         
         var error: NSError?
         
-        let fetchedResults =
+        let fetchedPeople =
         managedContext!.executeFetchRequest(fetchRequest,
             error: &error)
         
         
-        if let results = fetchedResults as? [Person]{
-            //sort results by earliest entry to latest entry
-            var sortedResults = sorted(results, {
-                $0.date.compare($1.date) == NSComparisonResult.OrderedAscending
-            })
+        if let unsortedPeople = fetchedPeople as? [Person]{
+            people = sortPeopleEarliestToLatest(unsortedPeople)
             
-            people = sortedResults
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-
     }
+    
+    func sortPeopleEarliestToLatest(unsortedPeople: [Person]) -> [Person] {
+        var sortedPeople =  sorted(unsortedPeople, {                $0.date.compare($1.date) == NSComparisonResult.OrderedAscending
+        })
+        return sortedPeople
+    }
+    
+}
+
+extension ViewController {
+    
+    //MARK:TABLEVIEW DELEGATE
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
@@ -142,19 +150,9 @@ class ViewController: UIViewController, UITableViewDataSource {
             }
         ]
     }
-    
-     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        // Intentionally blank. Required to use UITableViewRowActions
+                // Intentionally blank. Required to use UITableViewRowActions
     }
-    
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
