@@ -45,9 +45,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     func saveAction(textField: UITextField) -> UIAlertAction {
         return UIAlertAction(title: "Save",
             style: .Default) { (action: UIAlertAction!) -> Void in
-                self.saveName(textField.text)
-                let indexPath = NSIndexPath(forRow: self.people.count-1, inSection: 0)
-                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                let indexPathOfNewEntry = NSIndexPath(forRow: self.people.count, inSection: 0)
+                self.saveNewPersonInPeople(textField.text)
+                self.tableView.insertRowsAtIndexPaths([indexPathOfNewEntry], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
     
@@ -58,10 +58,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     
-    
-    
-    func saveName(name: String) {
-
+    //Creates new Entity from passed in name and current datetime, appends to person array
+    func saveNewPersonInPeople(name: String) {
         let entity =  NSEntityDescription.entityForName("Person",
             inManagedObjectContext:
             managedContext!)
@@ -69,29 +67,21 @@ class ViewController: UIViewController, UITableViewDataSource {
         let person = NSManagedObject(entity: entity!,
             insertIntoManagedObjectContext:managedContext) as! Person
         
-        
         person.name = name
         person.date = NSDate()
         
-        //3
-        //person.setValue(name, forKey: "name")
-        
-        //4
         var error: NSError?
         if !managedContext!.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
-        }  
-        //5
+        }
         people.append(person)
     }
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         managedContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
-        title = "\"The List\""
+        title = "\"Kevin's List\""
         tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "Cell")
     }
@@ -103,20 +93,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     func loadPeopleFromManagedObject(){
         let fetchRequest = NSFetchRequest(entityName:"Person")
         
-        //3
         var error: NSError?
         
         let fetchedResults =
         managedContext!.executeFetchRequest(fetchRequest,
             error: &error)
-        
-        // Create a sort descriptor object that sorts on the "title"
-        // property of the Core Data object
-        // let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-        
-        // Set the list of sort descriptors in the fetch request,
-        // so it includes the sort descriptor
-        // fetchRequest.sortDescriptors = [sortDescriptor]
         
         
         if let results = fetchedResults as? [Person]{
@@ -128,8 +109,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-        println("Could fetch \(error),")
-
 
     }
 
