@@ -135,7 +135,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
         return [
-            UITableViewRowAction(style: .Normal, title: "More") { _ in println("More") },
             UITableViewRowAction(style: .Default, title: "Delete") { _ in
                 self.managedContext!.deleteObject(self.people[indexPath.row])
                 self.loadPeopleFromManagedObject()
