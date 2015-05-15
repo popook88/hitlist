@@ -1,0 +1,6 @@
+framework module Pods_HitListTests {
+  umbrella header "Pods-HitListTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

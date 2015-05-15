@@ -16,6 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="qUS-po-egO" kind="relationship" relationship="viewControllers" id="s6V-rg-7In"/>
+                        <segue destination="c4q-TL-Sut" kind="relationship" relationship="viewControllers" id="fhH-CX-ope"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiM-vM-54d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -44,7 +45,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="WLM-zm-5b6">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="ifA-Wu-CKR">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="ifA-Wu-CKR" userLabel="Add">
                             <connections>
                                 <action selector="addName:" destination="zWE-Gj-cNY" id="j1K-no-jCT"/>
                             </connections>
@@ -56,13 +57,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqX-Xr-bcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="907"/>
+            <point key="canvasLocation" x="1368" y="499"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--BathTub-->
         <scene sceneID="jdK-uC-euq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qUS-po-egO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="sample-820-bathtub" id="PSr-8p-2FK"/>
+                    <tabBarItem key="tabBarItem" title="BathTub" image="sample-820-bathtub" id="PSr-8p-2FK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bjs-C8-Lqn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -75,10 +76,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjf-gi-nqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="384" y="907.5"/>
+            <point key="canvasLocation" x="672" y="499"/>
+        </scene>
+        <!--Dog House-->
+        <scene sceneID="w78-ns-bSA">
+            <objects>
+                <viewController title="Dog House" id="c4q-TL-Sut" customClass="DogHouseVC" customModule="HitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y4A-Oo-VPx"/>
+                        <viewControllerLayoutGuide type="bottom" id="PS8-ZT-fm8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="enI-2l-o54">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nF7-1L-mea">
+                                <rect key="frame" x="184" y="212" width="233" height="175"/>
+                                <state key="normal" title="PartyFacesButton" image="PartyFaces">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="84" y="312" width="233" height="175"/>
+                                </variation>
+                                <connections>
+                                    <action selector="partyFacePress:" destination="c4q-TL-Sut" eventType="touchUpInside" id="Bee-Mg-deq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="DogHouse" image="sample-504-doghouse" id="xeK-ec-emy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tlt-0Y-fDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672" y="1821"/>
         </scene>
     </scenes>
     <resources>
+        <image name="PartyFaces" width="1280" height="960"/>
+        <image name="sample-504-doghouse" width="28" height="28"/>
         <image name="sample-820-bathtub" width="28" height="26"/>
     </resources>
 </document>

@@ -8,29 +8,103 @@
 
 import UIKit
 import XCTest
+import KIF
 
-class HitListTests: XCTestCase {
+class HitListTests: KIFTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func beforeEach(){
+        
+    }
+    override func afterEach(){
+        
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    override func beforeAll() {
+        deleteAllNames()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    override func afterAll() {
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    // MARK: Test Cases
+    
+    func testAddName(){
+        for i in 1...5 {
+            addName("Test" + String(i))
         }
     }
     
+    func testAddNameCancel(){
+        let entry1 = numberOfEntries()
+        addCancel("")
+        addCancel("Hello")
+        if entry1 != numberOfEntries(){ tester().fail()
+        }
+    }
+    
+    func testDeleteTopName(){
+        let t = tester()
+        let tableView = t.waitForViewWithAccessibilityLabel("tableView") as! UITableView
+        deleteName(NSIndexPath(forRow: 0, inSection: 0), tableView: tableView)
+    }
+    
+    func testDeleteAllNames(){
+        deleteAllNames()
+    }
+    
+    func testSwitchToDogHouseAndBoop(){
+        let t = tester()
+        t.tapViewWithAccessibilityLabel("DogHouse")
+        t.waitForAnimationsToFinish()
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.waitForAnimationsToFinish()
+    }
+    
+    func testSwitchToBathtubAndAdd(){
+        let t = tester()
+        t.tapViewWithAccessibilityLabel("Bathtub")
+        t.waitForAnimationsToFinish()
+        addName("BathtubTesting")
+    }
+    
+    
+    
+    
+    
+    // MARK: Helper Functions
+
+    func numberOfEntries() -> Int{
+        let t = tester()
+        let tableView = t.waitForViewWithAccessibilityLabel("tableView") as! UITableView
+       return tableView.numberOfRowsInSection(0)
+    }
+    
+    func addName(name: String){
+        let t = tester()
+        t.tapViewWithAccessibilityLabel("Add")
+        t.enterTextIntoCurrentFirstResponder(name)
+        t.tapViewWithAccessibilityLabel("Save")
+    }
+    
+    func addCancel(name: String){
+        let t = tester()
+        t.tapViewWithAccessibilityLabel("Add")
+        t.enterTextIntoCurrentFirstResponder(name)
+        t.tapViewWithAccessibilityLabel("Cancel")
+    }
+    
+    func deleteName(indexPath: NSIndexPath, tableView: UITableView){
+        let t = tester()
+        t.swipeRowAtIndexPath(indexPath, inTableView: tableView, inDirection: KIFSwipeDirection.Left)
+        t.tapViewWithAccessibilityLabel("Delete")
+    }
+    
+    func deleteAllNames(){
+        let t = tester()
+        let tableView = t.waitForViewWithAccessibilityLabel("tableView") as! UITableView
+        
+        while tableView.numberOfRowsInSection(0) > 0 {
+            deleteName(NSIndexPath(forRow: 0, inSection: 0), tableView: tableView)
+        }
+    }
 }

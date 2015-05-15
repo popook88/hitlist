@@ -24,7 +24,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view, typically from a nib.
         managedContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
         title = "Bathtub"
-         loadPeopleFromManagedObject()
+        accessibilitySetup()
+        loadPeopleFromManagedObject()
+    }
+    
+    func accessibilitySetup() {
+        tableView.accessibilityLabel = "tableView"
+        tableView.isAccessibilityElement = true
     }
     
     // MARK:UIACTIONS
@@ -145,6 +151,8 @@ extension ViewController {
         return [
             UITableViewRowAction(style: .Default, title: "Delete") { _ in
                 self.managedContext!.deleteObject(self.people[indexPath.row])
+                var error: NSError?
+                self.managedContext!.save(&error)
                 self.loadPeopleFromManagedObject()
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }

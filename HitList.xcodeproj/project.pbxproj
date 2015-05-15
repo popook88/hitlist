@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0A3C770D1B02CE0E0084779E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C770C1B02CE0E0084779E /* Person.swift */; };
+		0A3C77161B0565B60084779E /* KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C77151B0565B60084779E /* KIF.swift */; };
+		0A3C77181B05AF0E0084779E /* DogHouseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C77171B05AF0E0084779E /* DogHouseVC.swift */; };
+		0A3C77231B05BA090084779E /* boop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C77221B05BA090084779E /* boop.wav */; };
 		0A3EEE631B02AE77007ACF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EEE621B02AE77007ACF36 /* AppDelegate.swift */; };
 		0A3EEE661B02AE77007ACF36 /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EEE641B02AE77007ACF36 /* HitList.xcdatamodeld */; };
 		0A3EEE681B02AE77007ACF36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EEE671B02AE77007ACF36 /* ViewController.swift */; };
@@ -15,6 +18,7 @@
 		0A3EEE6D1B02AE77007ACF36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EEE6C1B02AE77007ACF36 /* Images.xcassets */; };
 		0A3EEE701B02AE77007ACF36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EEE6E1B02AE77007ACF36 /* LaunchScreen.xib */; };
 		0A3EEE7C1B02AE78007ACF36 /* HitListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EEE7B1B02AE78007ACF36 /* HitListTests.swift */; };
+		B9D17075A98A90F21D3420E8 /* Pods_HitListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB0BD4E8DA7CF5FFC948022 /* Pods_HitListTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A3C770C1B02CE0E0084779E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		0A3C770C1B02CE0E0084779E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
+		0A3C770E1B0564390084779E /* HitList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HitList-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A3C77111B0564E00084779E /* HitListTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HitListTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A3C77151B0565B60084779E /* KIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KIF.swift; sourceTree = "<group>"; };
+		0A3C77171B05AF0E0084779E /* DogHouseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogHouseVC.swift; sourceTree = "<group>"; };
+		0A3C77221B05BA090084779E /* boop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boop.wav; sourceTree = "<group>"; };
 		0A3EEE5D1B02AE77007ACF36 /* HitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3EEE611B02AE77007ACF36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3EEE621B02AE77007ACF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +49,9 @@
 		0A3EEE751B02AE78007ACF36 /* HitListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3EEE7A1B02AE78007ACF36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3EEE7B1B02AE78007ACF36 /* HitListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitListTests.swift; sourceTree = "<group>"; };
+		7FB0BD4E8DA7CF5FFC948022 /* Pods_HitListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A769D009755DBAFA0D566140 /* Pods-HitListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitListTests/Pods-HitListTests.release.xcconfig"; sourceTree = "<group>"; };
+		BEC96FC0D1ABF99D4FE9F7CD /* Pods-HitListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitListTests/Pods-HitListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,19 +66,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9D17075A98A90F21D3420E8 /* Pods_HitListTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A3C77141B05658E0084779E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A3C77151B0565B60084779E /* KIF.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		0A3C771A1B05B3C90084779E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0A3C77221B05BA090084779E /* boop.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		0A3C771D1B05B7D10084779E /* HitList_Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HitList_Resources;
+			sourceTree = "<group>";
+		};
 		0A3EEE541B02AE77007ACF36 = {
 			isa = PBXGroup;
 			children = (
-				0A3C770C1B02CE0E0084779E /* Person.swift */,
 				0A3EEE5F1B02AE77007ACF36 /* HitList */,
 				0A3EEE781B02AE78007ACF36 /* HitListTests */,
 				0A3EEE5E1B02AE77007ACF36 /* Products */,
+				101CD5BA7ABE4F856BD565A2 /* Pods */,
+				992DB9350634F04FCD4D6800 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +119,8 @@
 		0A3EEE5F1B02AE77007ACF36 /* HitList */ = {
 			isa = PBXGroup;
 			children = (
+				0A3C771A1B05B3C90084779E /* Sounds */,
+				0A3C770C1B02CE0E0084779E /* Person.swift */,
 				0A3EEE621B02AE77007ACF36 /* AppDelegate.swift */,
 				0A3EEE671B02AE77007ACF36 /* ViewController.swift */,
 				0A3EEE691B02AE77007ACF36 /* Main.storyboard */,
@@ -89,6 +128,8 @@
 				0A3EEE6E1B02AE77007ACF36 /* LaunchScreen.xib */,
 				0A3EEE641B02AE77007ACF36 /* HitList.xcdatamodeld */,
 				0A3EEE601B02AE77007ACF36 /* Supporting Files */,
+				0A3C770E1B0564390084779E /* HitList-Bridging-Header.h */,
+				0A3C77171B05AF0E0084779E /* DogHouseVC.swift */,
 			);
 			path = HitList;
 			sourceTree = "<group>";
@@ -96,6 +137,7 @@
 		0A3EEE601B02AE77007ACF36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A3C771D1B05B7D10084779E /* HitList_Resources */,
 				0A3EEE611B02AE77007ACF36 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -104,8 +146,10 @@
 		0A3EEE781B02AE78007ACF36 /* HitListTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A3C77141B05658E0084779E /* Extensions */,
 				0A3EEE7B1B02AE78007ACF36 /* HitListTests.swift */,
 				0A3EEE791B02AE78007ACF36 /* Supporting Files */,
+				0A3C77111B0564E00084779E /* HitListTests-Bridging-Header.h */,
 			);
 			path = HitListTests;
 			sourceTree = "<group>";
@@ -116,6 +160,23 @@
 				0A3EEE7A1B02AE78007ACF36 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		101CD5BA7ABE4F856BD565A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEC96FC0D1ABF99D4FE9F7CD /* Pods-HitListTests.debug.xcconfig */,
+				A769D009755DBAFA0D566140 /* Pods-HitListTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		992DB9350634F04FCD4D6800 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FB0BD4E8DA7CF5FFC948022 /* Pods_HitListTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A3EEE821B02AE78007ACF36 /* Build configuration list for PBXNativeTarget "HitListTests" */;
 			buildPhases = (
+				5424D89A38376881F0724D6D /* Check Pods Manifest.lock */,
 				0A3EEE711B02AE78007ACF36 /* Sources */,
 				0A3EEE721B02AE78007ACF36 /* Frameworks */,
 				0A3EEE731B02AE78007ACF36 /* Resources */,
+				2A1B15E11B304AE6673D5237 /* Embed Pods Frameworks */,
+				100BA87E0E1AF41E907D18E0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3C77231B05BA090084779E /* boop.wav in Resources */,
 				0A3EEE6B1B02AE77007ACF36 /* Main.storyboard in Resources */,
 				0A3EEE701B02AE77007ACF36 /* LaunchScreen.xib in Resources */,
 				0A3EEE6D1B02AE77007ACF36 /* Images.xcassets in Resources */,
@@ -214,6 +279,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		100BA87E0E1AF41E907D18E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HitListTests/Pods-HitListTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A1B15E11B304AE6673D5237 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HitListTests/Pods-HitListTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5424D89A38376881F0724D6D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A3EEE591B02AE77007ACF36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +334,7 @@
 			files = (
 				0A3EEE681B02AE77007ACF36 /* ViewController.swift in Sources */,
 				0A3EEE631B02AE77007ACF36 /* AppDelegate.swift in Sources */,
+				0A3C77181B05AF0E0084779E /* DogHouseVC.swift in Sources */,
 				0A3C770D1B02CE0E0084779E /* Person.swift in Sources */,
 				0A3EEE661B02AE77007ACF36 /* HitList.xcdatamodeld in Sources */,
 			);
@@ -230,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3C77161B0565B60084779E /* KIF.swift in Sources */,
 				0A3EEE7C1B02AE78007ACF36 /* HitListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,11 +464,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HitList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HitList/HitList-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -361,18 +479,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HitList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HitList/HitList-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		0A3EEE831B02AE78007ACF36 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC96FC0D1ABF99D4FE9F7CD /* Pods-HitListTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -384,14 +506,18 @@
 				INFOPLIST_FILE = HitListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HitListTests/HitListTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HitList.app/HitList";
 			};
 			name = Debug;
 		};
 		0A3EEE841B02AE78007ACF36 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A769D009755DBAFA0D566140 /* Pods-HitListTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -399,6 +525,7 @@
 				INFOPLIST_FILE = HitListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HitListTests/HitListTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HitList.app/HitList";
 			};
 			name = Release;

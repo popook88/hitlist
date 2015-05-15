@@ -1,0 +1,6 @@
+framework module KIF {
+  umbrella header "Pods-HitListTests-KIF-umbrella.h"
+
+  export *
+  module * { export * }
+}
