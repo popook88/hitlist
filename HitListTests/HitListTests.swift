@@ -28,13 +28,13 @@ class HitListTests: KIFTestCase {
     
     // MARK: Test Cases
     
-    func testAddName(){
+    func testA_AddName(){
         for i in 1...5 {
             addName("Test" + String(i))
         }
     }
     
-    func testAddNameCancel(){
+    func testB_AddNameCancel(){
         let entry1 = numberOfEntries()
         addCancel("")
         addCancel("Hello")
@@ -42,30 +42,38 @@ class HitListTests: KIFTestCase {
         }
     }
     
-    func testDeleteTopName(){
+    func testC_DeleteTopName(){
         let t = tester()
         let tableView = t.waitForViewWithAccessibilityLabel("tableView") as! UITableView
         deleteName(NSIndexPath(forRow: 0, inSection: 0), tableView: tableView)
     }
     
-    func testDeleteAllNames(){
+    func testD_DeleteAllNames(){
         deleteAllNames()
     }
     
-    func testSwitchToDogHouseAndBoop(){
+    func testE_SwitchToDogHouseAndBoop(){
         let t = tester()
         t.tapViewWithAccessibilityLabel("DogHouse")
         t.waitForAnimationsToFinish()
         t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
         t.waitForAnimationsToFinish()
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
+        t.tapViewWithAccessibilityLabel("PartyFacesButton")
     }
     
-    func testSwitchToBathtubAndAdd(){
+    func testF_SwitchToInitialBathtubAndAdd(){
         let t = tester()
         t.tapViewWithAccessibilityLabel("Bathtub")
         t.waitForAnimationsToFinish()
         addName("BathtubTesting")
     }
+    
     
     
     

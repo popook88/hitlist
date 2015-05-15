@@ -11,17 +11,39 @@ import AVFoundation
 
 class DogHouseVC: UIViewController {
     
-    var buttonBoop = AVAudioPlayer()
+    var buttonBoops = [AVAudioPlayer()]
+//    var buttonBoop = AVAudioPlayer()
     var buttonTap = AVAudioPlayer()
     
     override func viewDidLoad() {
         title = "DogHouse"
-        buttonBoop = self.setupAudioPlayerWithFile("boop", type:"wav")
+        initializeSound()
+    }
+    
+    func initializeSound(){
+        var buttonBoop = AVAudioPlayer()
+        buttonBoop = setupAudioPlayerWithFile("boop", type: "wav")
+        buttonBoops[0] = buttonBoop
     }
 
     @IBAction func partyFacePress(sender: UIButton) {
-        buttonBoop.play()
+        
+        for boop in buttonBoops{
+            if boop.playing == false{
+                boop.play()
+                return
+            }
+        }
+        appendAndPlayNewBoop()
     }
+    
+    func appendAndPlayNewBoop(){
+        var buttonBoop = AVAudioPlayer()
+        buttonBoop = setupAudioPlayerWithFile("boop", type: "wav")
+        buttonBoops.append(buttonBoop)
+        buttonBoops[buttonBoops.count-1].play()
+    }
+    
     
     func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer  {
 
